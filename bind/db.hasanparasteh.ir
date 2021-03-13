@@ -1,0 +1,32 @@
+;
+; BIND data file for local loopback interface
+;
+$TTL	5400
+@	IN	SOA	ns1.hasanparasteh.ir root.hasanparasteh.ir. (
+			      2		; Serial
+			      5400	; Refresh
+			      7200	; Retry
+			      2419200	; Expire
+			 7200 )	; Negative Cache TTL
+; Main
+@       TXT     v=spf1 mx a:mail.hasanparasteh.ir -all
+@	IN	A	144.76.212.209
+@	IN	AAAA	::1
+; DNS Resolvers
+ns1	IN	A	144.76.212.209
+@	IN	NS	ns1.hasanparasteh.ir.
+ns2	IN	A	144.76.212.209
+@	IN	NS	ns2.hasanparasteh.ir.
+ns3	IN	A	144.76.212.209
+@	IN	NS	ns3.hasanparasteh.ir.
+; Actual Server
+hasanparasteh.ir.	IN	MX	10	mail.hasanparasteh.ir.
+hasanparasteh.ir.	IN	A	144.76.212.209
+www	IN	CNAME	hasanparasteh.ir.	
+ftp	IN	CNAME	hasanparasteh.ir.
+mail	IN	A	144.76.212.209
+mail.hasanparasteh.ir	IN	CNAME	hasanparasteh.ir.
+www.mail.hasanparasteh.ir	IN	CNAME	hasanparasteh.ir.
+
+mail._domainkey.hasanparasteh.ir        TXT     v=DKIM1; k=rsa; p=MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAnuvUaHV+SQ99goa4FuVmtuSEAXHArncWxOAQmdGIWmWR/6Eqt9pA70YOPKV27Z9zMHasOvAafRcp0dLpC/iDd97uJ/62YyZKWgQjEVDKaEjJLKQhv7hjQkF6Qv+3a5uDvZc6/Ov3aae7AP0EcKdqxU8FNIEQnE8eK0Pkrmu8iDJoO93LT7zymX/JnqR4UyoCp0ieiHp0zkokzK509pz0lkh/K40x+EN39dNixslk8+p4Ph6ncAQAOAKF70eiig+KvYoucAkXmzJpK53qjJO01VXFxlVWnBvLw40bgczneT0bjqLHMesdjbS4BCuUN9tcH5CJi8mkfuJbakrOUahrQwIDAQAB
+_dmarc.hasanparasteh.ir TXT     v=DMARC1; p=reject; rua=mailto:dmarc@hasanparasteh.ir; fo=1

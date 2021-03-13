@@ -1,0 +1,19 @@
+;
+; BIND reverse data file for local loopback interface
+;
+$TTL	604800
+@	IN	SOA	ns1.hasanparasteh.ir. root.hasanparasteh.ir. (
+			      1		; Serial
+			 604800		; Refresh
+			  86400		; Retry
+			2419200		; Expire
+			 604800 )	; Negative Cache TTL
+
+@	IN	NS	ns1.
+15	IN	PTR	ns1.hasanparasteh.ir.
+
+@	IN	NS	ns2.
+15	IN	PTR	ns2.hasanparasteh.ir.
+
+@	IN	NS	ns3.
+15	IN	PTR	ns3.hasanparasteh.ir.
