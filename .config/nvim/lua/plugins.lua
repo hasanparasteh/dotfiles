@@ -13,6 +13,7 @@ local packer_bootstrap = ensure_packer()
 
 require("packer").startup(function(use)
   use("wbthomason/packer.nvim")
+
   -- LSP
   use("neovim/nvim-lspconfig")
   use({
@@ -23,21 +24,16 @@ require("packer").startup(function(use)
   })
 
   -- Autocompletion framework
-  use("hrsh7th/nvim-cmp")
-  use({
-    -- cmp LSP completion
-    "hrsh7th/cmp-nvim-lsp",
-    -- cmp Snippet completion
-    "hrsh7th/cmp-vsnip",
-    -- cmp Path completion
-    "hrsh7th/cmp-path",
-    "hrsh7th/cmp-buffer",
-    after = { "hrsh7th/nvim-cmp" },
-    requires = { "hrsh7th/nvim-cmp" },
-  })
+  use('hrsh7th/cmp-nvim-lsp')
+  use('hrsh7th/cmp-buffer')
+  use('hrsh7th/cmp-path')
+  use('hrsh7th/cmp-cmdline')
+  use('hrsh7th/nvim-cmp')
   
+  -- For vsnip users.
+  use('hrsh7th/cmp-vsnip')
   use('hrsh7th/vim-vsnip')
- 
+
   -- Adds extra functionality over rust analyzer
   use("simrat39/rust-tools.nvim")
 
@@ -74,7 +70,7 @@ require("packer").startup(function(use)
     end
   }
 
-  -- Rust Plugins
+  -- Rust Specific
   use {
     'saecki/crates.nvim',
     tag = 'v0.3.0',
@@ -86,7 +82,7 @@ require("packer").startup(function(use)
     
 end)
 
--- the first run will install packer and our plugins
+-- the first run will install packer and our useins
 if packer_bootstrap then
   require("packer").sync()
   return

@@ -1,6 +1,7 @@
 require("plugins")
 require("rust")
 require("tree")
+require("lsp")
 
 require("keymaps")
 
