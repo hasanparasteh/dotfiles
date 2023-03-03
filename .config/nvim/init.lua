@@ -1,8 +1,8 @@
 require("plugins")
-require("rust")
 require("tree")
 require("lsp")
 
+require("rust")
 require("keymaps")
 
 vim.wo.number = true
@@ -24,3 +24,5 @@ vim.cmd [[colorscheme nightfly]]
 
 vim.opt.updatetime = 100
 vim.wo.signcolumn = "yes"
+
+vim.g.closetag_filenames = '*.html,*.xhtml,*.phtml,*.vue'

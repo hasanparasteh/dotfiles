@@ -79,7 +79,10 @@ require("packer").startup(function(use)
         require('crates').setup()
     end,
   }
-    
+
+  -- etc
+  use {'romgrk/barbar.nvim', requires = 'nvim-web-devicons'}
+  use('alvan/vim-closetag')
 end)
 
 -- the first run will install packer and our useins
